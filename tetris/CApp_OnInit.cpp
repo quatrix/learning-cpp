@@ -1,8 +1,13 @@
 #include "CApp.h"
 #include <stdexcept>
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
 
 
 using std::runtime_error;
+using std::cout;
+using std::endl;
 
 bool CApp::OnInit() {
 	if(SDL_Init(SDL_INIT_EVERYTHING) < 0) { 
@@ -21,7 +26,15 @@ bool CApp::OnInit() {
 		throw std::runtime_error("can't OnLoad ./gfx/box.png");
 	}
 
-	current_shape.Display();
+	if ((Surf_BrickGrey = CSurface::OnLoad("./gfx/box_grey.png")) == NULL) {
+		throw std::runtime_error("can't OnLoad ./gfx/box.png");
+	}
+
+	//current_shape.Display();
+	//board.Display();
+
+	srand(time(0));
+	timer = SDL_AddTimer(800, MoveShapeDown, this);
 
 //	Reset();
 

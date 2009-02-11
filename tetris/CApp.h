@@ -44,7 +44,7 @@ class CApp : public CEvent {
 
 		void OnEvent(SDL_Event* Event);
 		void OnUser(Uint8 type, int code, void* data1, void* data2);
-		void CApp::OnKeyDown(SDLKey sym, SDLMod mod, Uint16 unicode);
+		void OnKeyDown(SDLKey sym, SDLMod mod, Uint16 unicode);
 		void OnExit();
 
 		void OnLoop();
